@@ -1,0 +1,5 @@
+{
+  "assets_directory": "../MinMoreCMS/statics/themes/",
+  "build":"./build/",
+  "verbose": true
+}
