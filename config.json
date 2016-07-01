@@ -1,5 +1,6 @@
 {
-  "assets_directory": "../MinMoreCMS/statics/themes/",
+  "assets_directory": "./src/",
   "build":"./build/",
-  "verbose": true
+  "verbose": true,
+  "sass_style":"compressed"
 }
