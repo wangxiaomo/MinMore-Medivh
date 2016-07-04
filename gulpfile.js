@@ -5,6 +5,7 @@ var gulp = require("gulp"),
     sass = require("gulp-sass"),
     uglify = require("gulp-uglify"),
     filter = require("./filter.js"), // Hack gulp-filter using abs path
+    watch = require("gulp-watch"),
     pump = require("pump"),
     del = require("del");
 
@@ -47,5 +48,24 @@ gulp.task("js", function(cb) {
       gulp.dest(config.build)
     ],
     cb
+  );
+});
+
+gulp.task("watch", function() {
+  watch(config.assets_directory + "**/*.sass", {verbose:config.verbose}, function(){
+    gulp.start("sass");
+  });
+  watch(config.assets_directory + "**/*.css", {verbose:config.verbose}, function(){
+    gulp.start("cssmin");
+  });
+  watch(config.assets_directory + "**/*.js", {verbose:config.verbose}, function(){
+    gulp.start("js");
+  });
+  watch([
+      config.assets_directory + "**/*.png",
+      config.assets_directory + "**/*.jpg",
+    ], {verbose:config.verbose}, function(){
+      gulp.start("imagemin");
+    }
   );
 });
