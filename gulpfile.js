@@ -1,5 +1,6 @@
 var config = require("./config.json");
 var gulp = require("gulp"),
+    cleancss = require("gulp-clean-css"),
     cssmin = require("gulp-cssmin"),
     imagemin = require("gulp-imagemin"),
     sass = require("gulp-sass"),
@@ -30,6 +31,7 @@ gulp.task("cssmin", function() {
   gulp.src(config.assets_directory + "**")
     .pipe(filter("**/*.css"))
     .pipe(changed(config.build))
+    .pipe(cleancss())
     .pipe(cssmin({showLog:config.verbose}))
     .pipe(gulp.dest(config.build));
 });
