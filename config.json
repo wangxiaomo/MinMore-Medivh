@@ -1,6 +1,7 @@
 {
   "assets_directory": "./src/",
   "build":"./build/",
+  "compress": true,
   "verbose": true,
-  "sass_style":"compressed"
+  "default_sass_style": "expanded"
 }
